@@ -143,6 +143,11 @@ export default function Page() {
         .filter((orderItem) => orderItem.quantity > 0)
     );
   };
+  const handleSubmitOrder = () => {
+    // Send order to the server
+    console.log("Order submitted:", order);
+  }
+
 
   return (
     <Box position="relative" fontSize="xl" pt="5vh">
@@ -157,7 +162,7 @@ export default function Page() {
         </Box>
 
         <Box textAlign="center" width="65%" pt="5vh">
-          <Grid templateColumns="repeat(3, 1fr)" gap="1">
+          <Grid templateColumns="repeat(4, 1fr)" gap="5">
             <GridItem>
               <TypeSelector type={type} onTypeChange={handleTypeChange} />
             </GridItem>
@@ -169,6 +174,11 @@ export default function Page() {
             <GridItem>
               <Button colorScheme="red" onClick={resetCurrentItem}>
                 Reset Item
+              </Button>
+            </GridItem>
+            <GridItem>
+              <Button colorScheme="green" onClick={handleSubmitOrder}>
+                Submit Order
               </Button>
             </GridItem>
           </Grid>
