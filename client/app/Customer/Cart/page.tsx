@@ -98,8 +98,6 @@ const subItems = cartItems.flatMap((item) => {
   };
 
   try {
-    console.log(payload)
-    console.log(cartItems)
     const response = await fetch("https://project-3-team-3c.onrender.com/orders/place-order", {
       method: "POST",
       headers: {
@@ -192,12 +190,13 @@ const subItems = cartItems.flatMap((item) => {
                 <HStack alignItems="flex-start" spacing={4}>
                   {/* Item Image */}
                   <Image
-                    src={"/static/missing-image.jpg"} // Fallback image
+                    src={`/menu_images/${item.name.replace(/\s+/g, "_").toLowerCase()}.png` || "/static/missing-image.jpg"} // Fallback image
                     alt={item.name}
                     boxSize="80px"
                     objectFit="cover"
                     borderRadius="md"
                   />
+                  
 
                   {/* Item Details */}
                   <Box flex={1}>
